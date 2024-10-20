@@ -3,6 +3,8 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 
+let introductory_panel_info = document.getElementById("info")
+
 // Add a row
 function addR() {
     alert("Clicked Add Row"); // Replace this line with your code.
@@ -43,3 +45,15 @@ function fillAll(){
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
 }
+
+function setDefaultInfo()
+{
+    setInfo("Welcome to Grid Maker! Here you can add or remove rows and columns, and stylize cells with colors")
+}
+
+function setInfo(info)
+{
+    introductory_panel_info.innerText = info
+}
+
+setDefaultInfo()
