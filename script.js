@@ -3,11 +3,25 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 
-let introductory_panel_info = document.getElementById("info")
 
+let introductory_panel_info = document.getElementById("info")
+let grid = document.getElementById("grid")
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    alert(`${grid.children.length}`); // Replace this line with your code.
+    
+    if (grid.children.length==0)
+        numCols = window.prompt("How many cells do you want to include in the first row?")
+    let row = document.createElement("tr")
+    for(let i=0; i<numCols; i++)
+    {
+        let cell_id = (numCols*numRows)+i
+        let cell = document.createElement("td")
+        cell.id = cell_id
+        cell.onclick = function(){alert(`clicked cell with id ${cell_id}`)}
+        row.appendChild(cell)
+    }
+    grid.appendChild(row)
 }
 
 // Add a column
