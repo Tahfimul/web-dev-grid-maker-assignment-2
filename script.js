@@ -8,7 +8,6 @@ let introductory_panel_info = document.getElementById("info")
 let grid = document.getElementById("grid")
 // Add a row
 function addR() {
-    alert(`${grid.children.length}`); // Replace this line with your code.
     
     if (grid.children.length==0)
         numCols = window.prompt("How many cells do you want to include in the first row?")
