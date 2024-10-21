@@ -2,7 +2,7 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected; 
-
+let numCells = 0;
 
 let introductory_panel_info = document.getElementById("info")
 let grid = document.getElementById("grid")
@@ -20,12 +20,38 @@ function addR() {
         cell.onclick = function(){alert(`clicked cell with id ${cell_id}`)}
         row.appendChild(cell)
     }
+    
     grid.appendChild(row)
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    
+    if (grid.children.length==0)
+    {
+        numRows = window.prompt("How many cells do you want to include in the first column?")
+        
+        for(let i=0; i<numRows; i++)
+        {
+            var row = document.createElement("tr")
+            grid.appendChild(row)
+        }
+        
+    }
+       
+    for(let i=0; i<numRows; i++)
+    {
+        var row = grid.children[i]
+        let cell_id = numCells
+        let cell = document.createElement("td")
+        cell.id = cell_id
+        cell.onclick = function(){alert(`clicked cell with id ${cell_id}`)}
+        row.appendChild(cell)
+        numCells++
+        // grid.appendChild(row)
+    }
+    numCols++
+    
 }
 
 // Remove a row
