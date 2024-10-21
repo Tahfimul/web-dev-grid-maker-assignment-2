@@ -14,13 +14,21 @@
     <button onclick="addC()">Add Col</button>
     <button onclick="removeR()">Remove Row</button>
     <button onclick="removeC()">Remove Col</button>
-
-    <select onclick="colorCell()" id="selectedColorFillType">
+    <div id="selectedColorFillTypeDropdown" style="border: 1px solid #ccc; width: 200px; cursor: pointer;">
+        <div id="selectedColorFillType">Select</div>
+        <ul id="colorFillTypes" style="display: none; list-style: none; padding: 0; margin: 0;">
+          <li class="dropdown-item" data-value="SELECT">SELECT</li>
+          <li class="dropdown-item" data-value="fillU">Fill All Uncolored</li>
+          <li class="dropdown-item" data-value="fillAll">Fill All</li>
+          <li class="dropdown-item" data-value="fillACell">Fill A Cell</li>
+        </ul>
+    </div>
+    <!-- <select onclick="colorCell()" id="selectedColorFillType">
         <option value="SELECT">SELECT</option>
         <option value="fillU">Fill All Uncolored</option>
         <option value="fillAll">Fill All</option>
         <option value="fillACell">Fill A Cell</option>
-    </select>
+    </select> -->
     <button onclick="clearAll()">Clear</button>
     <select onchange="selectColor()" id="selectedColorId">
         <option value="SELECT">SELECT</option>
