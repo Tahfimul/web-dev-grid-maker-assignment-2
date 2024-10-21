@@ -177,6 +177,7 @@ function colorCell(fill_type)
 
 // Fill all uncolored cells
 function fillU(){
+    single_cell_coloring = false;
     for(let i=0; i<numRows; i++)
     {
         var row = grid.children[i]
