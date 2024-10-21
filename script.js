@@ -62,16 +62,20 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    var row = grid.children[grid.children.length-1]
-    grid.removeChild(row)
-    numRows--
-    if(numRows==0)
-        numCols=0
+    if (grid.children.length>0)
+    {
+        var row = grid.children[grid.children.length-1]
+        grid.removeChild(row)
+        numRows--
+        if(numRows==0)
+            numCols=0
+    }
+    
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    
 }
 
 // Set global variable for selected color
