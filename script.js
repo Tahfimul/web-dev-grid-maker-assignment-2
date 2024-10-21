@@ -8,6 +8,33 @@ let single_cell_coloring = false;
 let introductory_panel_info = document.getElementById("info")
 let grid = document.getElementById("grid")
 
+const selectedColorFillType = document.getElementById('selectedColorFillType');
+const colorFillTypes = document.getElementById('colorFillTypes');
+const colorFillTypesDropdownItems = document.querySelectorAll('.dropdown-item');
+
+ // Toggle dropdown visibility
+ selectedColorFillType.addEventListener('click', (event) => {
+    event.stopPropagation()
+    colorFillTypes.style.display = colorFillTypes.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Detect individual item selection (including re-selection)
+  colorFillTypesDropdownItems.forEach(item => {
+    item.addEventListener('click', (event) => {
+      const selectedValue = event.target.dataset.value;
+      console.log(`Selected option: ${selectedValue}`);
+      selectedColorFillType.textContent = `${selectedValue}`;
+      colorFillTypes.style.display = 'none';  // Close the dropdown
+    });
+  });
+
+  // Close the dropdown if clicked outside
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('#customDropdown')) {
+        colorFillTypes.style.display = 'none';
+    }
+  });
+
 // Add a row
 function addR() {
     
