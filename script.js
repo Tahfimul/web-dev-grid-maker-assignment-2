@@ -210,7 +210,32 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    for(let i=0; i<numRows; i++)
+        {
+            var row = grid.children[i]
+            for(let j=0; j<numCols; j++)
+            {
+                var cell = row.children[j]
+                switch(colorSelected)
+                {
+                    case "Red":
+                        cell.style.backgroundColor = "red";
+                        break
+                    case "Blue":
+                        cell.style.backgroundColor = "blue";
+                        break
+                    case "Green":
+                        cell.style.backgroundColor = "green";
+                        break
+                    case "Yellow":
+                        cell.style.backgroundColor = "yellow";
+                        break
+                    default:
+                        break
+                }
+            }
+            
+        }
 }
 
 function fillACell()
