@@ -7,6 +7,7 @@ let single_cell_coloring = false;
 
 let introductory_panel_info = document.getElementById("info")
 let grid = document.getElementById("grid")
+
 // Add a row
 function addR() {
     
@@ -33,8 +34,8 @@ function addR() {
 
 function onCellSelect(cell_id)
 {
-
-    if(single_cell_coloring)
+    
+   if(single_cell_coloring)
     {
         var cell = document.getElementById(cell_id);
         switch(colorSelected)
@@ -149,7 +150,35 @@ function colorCell()
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    for(let i=0; i<numRows; i++)
+    {
+        var row = grid.children[i]
+        for(let j=0; j<numCols; j++)
+        {
+            var cell = row.children[j]
+            if(cell.style.backgroundColor==='')
+            {
+                switch(colorSelected)
+                {
+                    case "Red":
+                        cell.style.backgroundColor = "red";
+                        break
+                    case "Blue":
+                        cell.style.backgroundColor = "blue";
+                        break
+                    case "Green":
+                        cell.style.backgroundColor = "green";
+                        break
+                    case "Yellow":
+                        cell.style.backgroundColor = "yellow";
+                        break
+                    default:
+                        break
+                }
+            }
+        }
+    }
+        
 }
 
 // Fill all cells
