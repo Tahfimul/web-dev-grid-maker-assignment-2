@@ -64,6 +64,7 @@ function addC() {
 function removeR() {
     if (grid.children.length>0)
     {
+        console.log('removing row')
         var row = grid.children[grid.children.length-1]
         grid.removeChild(row)
         numRows--
@@ -75,7 +76,23 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    
+    if(numRows>0)
+    {
+        for(let i=0; i<numRows; i++)
+        {
+            var row = grid.children[i]
+            var last_col = row.children[row.children.length-1]
+            row.removeChild(last_col)
+        }
+        numCols--
+        if(numCols==0)
+        {
+            while(numRows>0)
+                removeR()
+            numRows=0
+        }
+            
+    }
 }
 
 // Set global variable for selected color
