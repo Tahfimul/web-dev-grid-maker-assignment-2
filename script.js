@@ -101,6 +101,24 @@ function selectColor(){
     console.log(colorSelected);
 }
 
+function colorCell()
+{
+    var fill_type = document.getElementById("selectedColorFillType").value;
+    
+    switch(fill_type)
+    {
+        case "fillU":
+            fillU()
+            break
+        case "fillAll":
+            fillAll()
+            break
+        case "fillACell":
+            alert("Fill a Cell selected")
+            break
+    }
+}
+
 // Fill all uncolored cells
 function fillU(){
     alert("Clicked Fill All Uncolored"); // Replace this line with your code.

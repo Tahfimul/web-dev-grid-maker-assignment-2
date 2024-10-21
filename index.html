@@ -14,8 +14,12 @@
     <button onclick="addC()">Add Col</button>
     <button onclick="removeR()">Remove Row</button>
     <button onclick="removeC()">Remove Col</button>
-    <button onclick="fillU()">Fill All Uncolored</button>
-    <button onclick="fillAll()">Fill All</button>
+    <select onchange="colorCell()" id="selectedColorFillType">
+        <option value="SELECT">SELECT</option>
+        <option value="fillU">Fill All Uncolored</option>
+        <option value="fillAll">Fill All</option>
+        <option value="fillACell">Fill A Cell</option>
+    </select>
     <button onclick="clearAll()">Clear</button>
     <select onchange="selectColor()" id="selectedColorId">
         <option value="SELECT">SELECT</option>
