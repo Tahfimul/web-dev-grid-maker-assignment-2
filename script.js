@@ -22,8 +22,8 @@ function addR() {
         row.appendChild(cell)
         numCells++
     }
-    
-    grid.appendChild(row)
+    if(numCols>0)
+        grid.appendChild(row)
 }
 
 // Add a column
