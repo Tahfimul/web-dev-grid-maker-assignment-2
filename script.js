@@ -23,7 +23,11 @@ function addR() {
         numCells++
     }
     if(numCols>0)
+    {
         grid.appendChild(row)
+        numRows++
+    }
+        
 }
 
 // Add a column
