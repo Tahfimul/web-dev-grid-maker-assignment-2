@@ -3,6 +3,7 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 let numCells = 0;
+let single_cell_coloring = false;
 
 let introductory_panel_info = document.getElementById("info")
 let grid = document.getElementById("grid")
@@ -18,7 +19,7 @@ function addR() {
         let cell_id = numCells
         let cell = document.createElement("td")
         cell.id = cell_id
-        cell.onclick = function(){alert(`clicked cell with id ${cell_id}`)}
+        cell.onclick = function(){onCellSelect(cell_id)}
         row.appendChild(cell)
         numCells++
     }
@@ -28,6 +29,33 @@ function addR() {
         numRows++
     }
         
+}
+
+function onCellSelect(cell_id)
+{
+
+    if(single_cell_coloring)
+    {
+        var cell = document.getElementById(cell_id);
+        switch(colorSelected)
+        {
+            case "Red":
+                cell.style.backgroundColor = "red";
+                break
+            case "Blue":
+                cell.style.backgroundColor = "blue";
+                break
+            case "Green":
+                cell.style.backgroundColor = "green";
+                break
+            case "Yellow":
+                cell.style.backgroundColor = "yellow";
+                break
+            default:
+                break
+        }
+    }
+    
 }
 
 // Add a column
@@ -51,7 +79,7 @@ function addC() {
         let cell_id = numCells
         let cell = document.createElement("td")
         cell.id = cell_id
-        cell.onclick = function(){alert(`clicked cell with id ${cell_id}`)}
+        cell.onclick = function(){onCellSelect(cell_id)}
         row.appendChild(cell)
         numCells++
         // grid.appendChild(row)
@@ -114,7 +142,7 @@ function colorCell()
             fillAll()
             break
         case "fillACell":
-            alert("Fill a Cell selected")
+            fillACell()
             break
     }
 }
@@ -127,6 +155,11 @@ function fillU(){
 // Fill all cells
 function fillAll(){
     alert("Clicked Fill All"); // Replace this line with your code.
+}
+
+function fillACell()
+{
+    single_cell_coloring = true;
 }
 
 // Clear all cells
