@@ -14,11 +14,13 @@ function addR() {
     let row = document.createElement("tr")
     for(let i=0; i<numCols; i++)
     {
-        let cell_id = (numCols*numRows)+i
+        // let cell_id = (numCols*numRows)+i
+        let cell_id = numCells
         let cell = document.createElement("td")
         cell.id = cell_id
         cell.onclick = function(){alert(`clicked cell with id ${cell_id}`)}
         row.appendChild(cell)
+        numCells++
     }
     
     grid.appendChild(row)
