@@ -13,27 +13,28 @@ const colorFillTypes = document.getElementById('colorFillTypes');
 const colorFillTypesDropdownItems = document.querySelectorAll('.dropdown-item');
 
  // Toggle dropdown visibility
- selectedColorFillType.addEventListener('click', (event) => {
+selectedColorFillType.addEventListener('click', (event) => {
     event.stopPropagation()
     colorFillTypes.style.display = colorFillTypes.style.display === 'none' ? 'block' : 'none';
-  });
+});
 
-  // Detect individual item selection (including re-selection)
-  colorFillTypesDropdownItems.forEach(item => {
+// Detect individual item selection (including re-selection)
+colorFillTypesDropdownItems.forEach(item => {
     item.addEventListener('click', (event) => {
-      const selectedValue = event.target.dataset.value;
-      console.log(`Selected option: ${selectedValue}`);
-      selectedColorFillType.textContent = `${selectedValue}`;
-      colorFillTypes.style.display = 'none';  // Close the dropdown
+        
+        const selectedValue = event.target.dataset.value;
+        selectedColorFillType.textContent = event.target.innerText;
+        colorCell(selectedValue)
+        colorFillTypes.style.display = 'none';  // Close the dropdown
     });
-  });
+});
 
-  // Close the dropdown if clicked outside
-  document.addEventListener('click', (event) => {
-    if (!event.target.closest('#customDropdown')) {
+// Close the dropdown if clicked outside
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('#selectedColorFillTypeDropdown')) {
         colorFillTypes.style.display = 'none';
     }
-  });
+});
 
 // Add a row
 function addR() {
@@ -43,7 +44,6 @@ function addR() {
     let row = document.createElement("tr")
     for(let i=0; i<numCols; i++)
     {
-        // let cell_id = (numCols*numRows)+i
         let cell_id = numCells
         let cell = document.createElement("td")
         cell.id = cell_id
@@ -157,9 +157,9 @@ function selectColor(){
     console.log(colorSelected);
 }
 
-function colorCell()
+function colorCell(fill_type)
 {
-    var fill_type = document.getElementById("selectedColorFillType").value;
+    // var fill_type = document.getElementById("selectedColorFillType").value;
     
     switch(fill_type)
     {
