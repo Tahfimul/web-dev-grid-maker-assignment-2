@@ -62,7 +62,11 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    var row = grid.children[grid.children.length-1]
+    grid.removeChild(row)
+    numRows--
+    if(numRows==0)
+        numCols=0
 }
 
 // Remove a column
