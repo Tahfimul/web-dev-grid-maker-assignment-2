@@ -211,6 +211,7 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
+    single_cell_coloring = false;
     for(let i=0; i<numRows; i++)
         {
             var row = grid.children[i]
