@@ -247,7 +247,16 @@ function fillACell()
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    for(let i=0; i<numRows; i++)
+    {
+        var row = grid.children[i];
+        for(let j=0; j<numCols;j++)
+        {
+            var cell = row.children[j];
+            if(cell.style.backgroundColor!=='')
+                cell.style.backgroundColor = ''
+        }
+    }
 }
 
 function setDefaultInfo()
